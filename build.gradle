@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    def globalConfig = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfig.getAt("androidCompileSdkVersion")
+    buildToolsVersion globalConfig.getAt("androidBuildToolsVersion")
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 26
+        consumerProguardFiles 'consumer-proguard-rules.pro'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+ext {
+    jodatimeVersion = "2.9.3"
+    assertjVersion = "3.6.2"
+}
+
+dependencies {
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    //compile "joda-time:joda-time:$jodatimeVersion"
+    compile "io.reactivex.rxjava2:rxjava:$rxJava2Version"
+    compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+
+    testCompile "junit:junit:$jUnitVersion"
+    testCompile "org.assertj:assertj-core:$assertjVersion"
+}
