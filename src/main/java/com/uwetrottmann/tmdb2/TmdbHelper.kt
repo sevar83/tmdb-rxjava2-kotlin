@@ -8,7 +8,7 @@ import java.util.*
 
 object TmdbHelper {
 
-    private val TMDB_DATE_FORMAT = SimpleDateFormat(TmdbConstants.TMDB_DATE_PATTERN);
+    private val tmdbDateFormat = ThreadLocal<SimpleDateFormat?>()
 
     /**
      * Create a [com.google.gson.GsonBuilder] and register all of the custom types needed in order to properly
@@ -25,7 +25,12 @@ object TmdbHelper {
 
             builder.registerTypeAdapter(Date::class.java, JsonDeserializer<Date> { json, _, _ ->
                 try {
-                    return@JsonDeserializer TMDB_DATE_FORMAT.parse(json.asString)
+                    var sdf: SimpleDateFormat? = tmdbDateFormat.get()
+                    if (sdf == null) {
+                        sdf = SimpleDateFormat(TmdbConstants.TMDB_DATE_PATTERN)
+                        tmdbDateFormat.set(sdf)
+                    }
+                    return@JsonDeserializer sdf.parse(json.asString)
                 } catch (e: Exception) {
                     return@JsonDeserializer null
                 }
