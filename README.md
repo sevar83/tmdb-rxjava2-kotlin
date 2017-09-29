@@ -2,40 +2,34 @@
 
 # tmdb-java
 
-A Java wrapper around the [TMDb v3 API](https://developers.themoviedb.org/3) using [retrofit 2][1].
+A Kotlin wrapper around the [TMDb v3 API](https://developers.themoviedb.org/3) using [Retrofit 2][1] and [RxJava 2][2].
 
 ## Usage
 <a href="https://search.maven.org/#search%7Cga%7C1%7Ctmdb-java"><img src="https://img.shields.io/maven-central/v/com.uwetrottmann.tmdb2/tmdb-java.svg?style=flat-square"></a>
 
-Add the following dependency to your Gradle project:
+Add the following to your project build.gradle:
 
 ```groovy
-compile 'com.uwetrottmann.tmdb2:tmdb-java:1.6.0'
+maven { url "https://jitpack.io" }
 ```
 
-or your Maven project:
+Add the following dependency to your module build.gradle:
 
-```xml
-<dependency>
-    <groupId>com.uwetrottmann.tmdb2</groupId>
-    <artifactId>tmdb-java</artifactId>
-    <version>1.6.0</version>
-</dependency>
+```groovy
+compile 'com.github.sevar83:tmdb-rxjava2:1.6.0'
 ```
 
 Use like any other retrofit2 based service. For example:
 
-```java
+```kotlin
 // Create an instance of the service you wish to use
 // you can keep this around
-Tmdb tmdb = new Tmdb("yourapikey");
-MovieService movieService = tmdb.movieService();
+val tmdb = new Tmdb("yourapikey")
+val movieService = tmdb.movieService()
 //
 // Call any of the available endpoints
-Call<Movie> call = movieService.summary(550);
-Movie movie = call.execute().body();
-Call<Trailers> callTrailers = movieService.trailers(550);
-Trailers trailers = callTrailers.execute().body();
+val movies: Observable<Movie> = movieService.summary(550)
+val trailers: Observable<Trailers> = movieService.trailers(550)
 ```
 
 See test cases in `src/test/` for more examples and the [retrofit website][1] for configuration options.
@@ -47,8 +41,10 @@ Just apply the [Proguard rules for retrofit](https://square.github.io/retrofit/#
 ## License
 
 Created by [Uwe Trottmann](https://uwetrottmann.com).
+Converted to Kotlin & RxJava 2 by Svetlozar Kostadinov.
 Except where noted otherwise, released into the [public domain](UNLICENSE).
 Do not just copy, make it better.
 
 
  [1]: https://square.github.io/retrofit/
+ [2]: https://github.com/ReactiveX/RxJava/tree/2.x

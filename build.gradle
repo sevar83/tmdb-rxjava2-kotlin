@@ -1,14 +1,15 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'maven'
+
+group = 'com.github.sevar83'
 
 android {
-    def globalConfig = rootProject.extensions.getByName("ext")
-
-    compileSdkVersion globalConfig.getAt("androidCompileSdkVersion")
-    buildToolsVersion globalConfig.getAt("androidBuildToolsVersion")
+    compileSdkVersion 26
+    buildToolsVersion '26.0.1'
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 15
         targetSdkVersion 26
         consumerProguardFiles 'consumer-proguard-rules.pro'
     }
@@ -20,7 +21,6 @@ android {
 }
 
 ext {
-    jodatimeVersion = "2.9.3"
     assertjVersion = "3.6.2"
 }
 
@@ -34,7 +34,6 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
     compile "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    //compile "joda-time:joda-time:$jodatimeVersion"
     compile "io.reactivex.rxjava2:rxjava:$rxJava2Version"
     compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
 
