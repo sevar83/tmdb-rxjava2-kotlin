@@ -38,5 +38,4 @@ class Movie(
         val images: Images? = null,
         val videos: Videos? = null,
         val external_ids: ExternalIds? = null
-        // TODO val content_ratings
 )
