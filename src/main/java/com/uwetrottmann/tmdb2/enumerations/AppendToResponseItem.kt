@@ -22,6 +22,7 @@ enum class AppendToResponseItem constructor(private val value: String) {
 
     VIDEOS("videos"),
     RELEASE_DATES("release_dates"),
+    RELEASES("releases"),
     CREDITS("credits"),
     SIMILAR("similar"),
     IMAGES("images"),
