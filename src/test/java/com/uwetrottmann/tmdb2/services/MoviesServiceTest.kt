@@ -300,25 +300,6 @@ class MoviesServiceTest : BaseTestCase() {
 
     @Test
     @Throws(IOException::class)
-    fun test_lists() {
-        val call = manager.moviesService().lists(49026, 1, null)
-        val results = call.blockingGet()
-        assertThat(results).isNotNull()
-        assertThat(results.id).isNotNull()
-        assertThat(results.page).isNotNull().isPositive()
-        assertThat(results.total_pages).isNotNull().isPositive()
-        assertThat(results.total_results).isNotNull().isPositive()
-        assertThat(results.results).isNotEmpty()
-        assertThat(results.results!!.get(0).id).isNotNull()
-        assertThat(results.results!!.get(0).description).isNotNull()
-        assertThat(results.results!!.get(0).favorite_count).isNotNull().isGreaterThanOrEqualTo(0)
-        assertThat(results.results!!.get(0).item_count).isPositive()
-        assertThat(results.results!!.get(0).iso_639_1).isNotNull()
-        assertThat(results.results!!.get(0).name).isNotNull()
-    }
-
-    @Test
-    @Throws(IOException::class)
     fun test_latest() {
         val call = manager.moviesService().latest()
         val movie = call.blockingGet()

@@ -17,14 +17,16 @@
 
 package com.uwetrottmann.tmdb2.entities
 
-class List_ {
+class MovieList(
+        id: Int,
+        description: String? = null,
+        favorite_count: Int? = null,
+        item_count: Int? = null,
+        iso_639_1: String? = null,
+        name: String? = null,
+        poster_path: String? = null,
+        list_type: String? = null,
 
-    val id: String? = null
-    val description: String? = null
-    val favorite_count: Int? = null
-    val item_count: Int? = null
-    val iso_639_1: String? = null
-    val name: String? = null
-    val poster_path: String? = null
-
-}
+        val created_by: String? = null,
+        val items: List<Movie> = emptyList()
+) : BaseList(id, description, favorite_count, item_count, iso_639_1, name, poster_path, list_type)

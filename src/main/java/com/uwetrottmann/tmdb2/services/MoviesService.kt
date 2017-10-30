@@ -144,22 +144,6 @@ interface MoviesService {
     ): Single<ReviewResultsPage>
 
     /**
-     * Get the lists that the movie belongs to.
-
-     * @param tmdbId TMDb id.
-     * *
-     * @param page *Optional.* Minimum value is 1, expected value is an integer.
-     * *
-     * @param language *Optional.* ISO 639-1 code.
-     */
-    @GET("movie/{id}/lists")
-    fun lists(
-            @Path("id") tmdbId: Int,
-            @Query("page") page: Int? = null,
-            @Query("language") language: String? = null
-    ): Single<ListResultsPage>
-
-    /**
      * Get the latest movie id.
      */
     @GET("movie/latest")

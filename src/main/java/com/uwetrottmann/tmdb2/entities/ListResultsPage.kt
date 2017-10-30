@@ -22,5 +22,5 @@ class ListResultsPage(
         total_pages: Int,
         total_results: Int,
         val id: Int,
-        val results: List<List_>? = null
+        val results: List<MovieList>? = null
 ) : BaseResultsPage(page, total_pages, total_results)

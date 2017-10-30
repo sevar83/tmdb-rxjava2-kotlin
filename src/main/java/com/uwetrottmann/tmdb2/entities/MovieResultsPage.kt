@@ -4,5 +4,5 @@ class MovieResultsPage(
         page: Int,
         total_pages: Int,
         total_results: Int,
-        val results: List<Movie>? = null
+        val results: List<Movie> = emptyList()
 ) : BaseResultsPage(page, total_pages, total_results)
