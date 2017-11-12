@@ -40,6 +40,7 @@ class Movie(
         val credits: Credits? = null,
         val release_dates: ReleaseDatesResults? = null,
         val similar: MovieResultsPage? = null,
+        val recommendations: MovieResultsPage? = null,
         val images: Images? = null,
         val videos: Videos? = null,
         val external_ids: ExternalIds? = null

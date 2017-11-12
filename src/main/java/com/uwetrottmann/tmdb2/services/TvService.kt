@@ -111,6 +111,22 @@ interface TvService {
     ): Single<TvResultsPage>
 
     /**
+     * Get the list of TV show recommendations for tv id.
+
+     * @param tmdbId A themoviedb id.
+     * *
+     * @param page *Optional.* Minimum value is 1, expected value is an integer.
+     * *
+     * @param language *Optional.* ISO 639-1 code.
+     */
+    @GET("tv/{id}/recommendations")
+    fun recommendations(
+            @Path("id") tmdbId: Int,
+            @Query("page") page: Int? = null,
+            @Query("language") language: String? = null
+    ): Single<TvResultsPage>
+
+    /**
      * Get the videos that have been added to a TV series (trailers, opening credits, etc...)
 
      * @param tmdbId A themoviedb id.

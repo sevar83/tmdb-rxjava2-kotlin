@@ -53,6 +53,7 @@ class TvShowComplete(
         val credits: Credits? = null,
         val release_dates: ReleaseDatesResults? = null,
         val similar: TvResultsPage? = null,
+        val recommendations: TvResultsPage? = null,
         val images: Images? = null,
         val videos: Videos? = null,
         val external_ids: ExternalIds? = null,

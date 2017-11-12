@@ -128,6 +128,22 @@ interface MoviesService {
     ): Single<MovieResultsPage>
 
     /**
+     * Get a list of recommended movies for a movie.
+
+     * @param tmdbId TMDb id.
+     * *
+     * @param page *Optional.* Minimum value is 1, expected value is an integer.
+     * *
+     * @param language *Optional.* ISO 639-1 code.
+     */
+    @GET("movie/{id}/recommendations")
+    fun recommendations(
+            @Path("id") tmdbId: Int,
+            @Query("page") page: Int? = null,
+            @Query("language") language: String? = null
+    ): Single<MovieResultsPage>
+
+    /**
      * Get the reviews for a particular movie id.
 
      * @param tmdbId TMDb id.
