@@ -18,3 +18,9 @@
 
 -keep class com.uwetrottmann.tmdb2.entities.** {*;}
 -keep class com.uwetrottmann.tmdb2.enumerations.** {*;}
+
+## -- ThreeTenBP --
+# Preserve the name of the FROM fields so that ThreeTenTypeAdapters.create() would still work
+-keepclassmembers public class * implements org.threeten.bp.temporal.TemporalAccessor {
+     public static final org.threeten.bp.temporal.TemporalQuery FROM;
+}

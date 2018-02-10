@@ -1,12 +1,12 @@
 package com.uwetrottmann.tmdb2.entities
 
-import java.util.*
+import org.threeten.bp.ZonedDateTime
 
 class ReleaseDate(
     val certification: String? = null,
     val iso_639_1: String? = null,
     val note: String? = null,
-    val release_date: Date? = null,
+    val release_date: ZonedDateTime? = null,
     val type: Int = 0
 ) {
     companion object {

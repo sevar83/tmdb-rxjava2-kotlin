@@ -17,7 +17,7 @@
 
 package com.uwetrottmann.tmdb2.entities
 
-import java.util.*
+import org.threeten.bp.LocalDate
 
 class Media(
 
@@ -25,7 +25,7 @@ class Media(
         /** Only for movies.  */
         val adult: Boolean? = null,
         val backdrop_path: String? = null,
-        val first_air_date: Date? = null,
+        val first_air_date: LocalDate? = null,
         val genre_ids: List<Int>? = null,
         val name: String? = null,
         val origin_country: List<String>? = null,
@@ -35,7 +35,7 @@ class Media(
         val original_title: String? = null,
         val overview: String? = null,
         /** Only for movies.  */
-        val release_date: Date? = null,
+        val release_date: LocalDate? = null,
         val poster_path: String? = null,
         val popularity: Double? = null,
         /** Only for movies.  */

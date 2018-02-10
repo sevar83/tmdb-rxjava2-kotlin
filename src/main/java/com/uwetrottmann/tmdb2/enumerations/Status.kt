@@ -1,7 +1,5 @@
 package com.uwetrottmann.tmdb2.enumerations
 
-import java.util.*
-
 enum class Status constructor(val value: String) {
 
     RUMORED("Rumored"),

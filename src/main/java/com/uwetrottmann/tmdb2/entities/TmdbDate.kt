@@ -1,26 +1,18 @@
 package com.uwetrottmann.tmdb2.entities
 
-import com.uwetrottmann.tmdb2.TmdbConstants
-import java.text.DateFormat
-import java.text.ParseException
-import java.text.SimpleDateFormat
-import java.util.*
+import com.uwetrottmann.tmdb2.TmdbConstants.TMDB_DATE_FORMATTER
+import org.threeten.bp.LocalDate
+import org.threeten.bp.format.DateTimeParseException
 
-class TmdbDate(val date: Date?) {
+
+class TmdbDate(val localDate: LocalDate?) {
 
     constructor(date: String) : this(
-                try { TMDB_DATE_FORMAT.get().parse(date) }
-                catch (e: ParseException) { null })
+            try {
+                TMDB_DATE_FORMATTER.parse(date) as LocalDate
+            } catch (e: DateTimeParseException) {
+                null
+            })
 
-    override fun toString(): String {
-        return TMDB_DATE_FORMAT.get().format(date)
-    }
-
-    companion object {
-        private val TMDB_DATE_FORMAT = object : ThreadLocal<DateFormat>() {
-            public override fun initialValue(): DateFormat {
-                return SimpleDateFormat(TmdbConstants.TMDB_DATE_PATTERN)
-            }
-        }
-    }
+    override fun toString(): String = TMDB_DATE_FORMATTER.format(localDate)
 }

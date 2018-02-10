@@ -1,11 +1,10 @@
 package com.uwetrottmann.tmdb2.entities
 
-import java.util.*
-import kotlin.collections.List
+import org.threeten.bp.LocalDate
 
 class TvSeason(
         val id: Int,
-        val air_date: Date? = null,
+        val air_date: LocalDate? = null,
         val episodes: List<TvEpisode>? = null,
         val episode_count: Int? = null,
         val name: String? = null,

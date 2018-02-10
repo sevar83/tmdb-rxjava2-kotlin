@@ -24,12 +24,17 @@ enum class AppendToResponseItem constructor(private val value: String) {
     RELEASE_DATES("release_dates"),
     RELEASES("releases"),
     CREDITS("credits"),
+    MOVIE_CREDITS("movie_credits"),
+    TV_CREDITS("tv_credits"),
+    COMBINED_CREDITS("combined_credits"),
     SIMILAR("similar"),
     RECOMMENDATIONS("recommendations"),
     IMAGES("images"),
+    TAGGED_IMAGES("tagged_images"),
     ALTERNATIVE_TITLES("alternative_titles"),
     EXTERNAL_IDS("external_ids"),
-    CONTENT_RATINGS("content_ratings");
+    CONTENT_RATINGS("content_ratings"),
+    CHANGES("changes");
 
     override fun toString(): String {
         return value

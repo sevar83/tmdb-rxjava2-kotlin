@@ -1,6 +1,6 @@
 package com.uwetrottmann.tmdb2.entities
 
-import java.util.Date
+import org.threeten.bp.LocalDate
 
 abstract class BasePersonCredit(
 
@@ -10,15 +10,17 @@ abstract class BasePersonCredit(
 
     // both
     val poster_path: String? = null,
+    val popularity: Float? = null,
+    val vote_average: Float? = null,
 
     // movies
     val adult: Boolean? = null,
-    val release_date: Date? = null,
+    val release_date: LocalDate? = null,
     val title: String? = null,
     val original_title: String? = null,
 
     // tv
-    val first_air_date: Date? = null,
+    val first_air_date: LocalDate? = null,
     val name: String? = null,
     val original_name: String? = null
 )

@@ -2,18 +2,18 @@ package com.uwetrottmann.tmdb2
 
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonDeserializer
+import com.google.gson.TypeAdapter
 import com.uwetrottmann.tmdb2.enumerations.Status
-import java.text.SimpleDateFormat
-import java.util.*
+import org.threeten.bp.LocalDate
+import org.threeten.bp.ZonedDateTime
+import org.threeten.bp.format.DateTimeFormatter
 
 object TmdbHelper {
-
-    private val tmdbDateFormat = ThreadLocal<SimpleDateFormat?>()
 
     /**
      * Create a [com.google.gson.GsonBuilder] and register all of the custom types needed in order to properly
      * deserialize complex TMDb-specific types.
-
+     *
      * @return Assembled GSON builder instance.
      */
     // class types
@@ -23,18 +23,12 @@ object TmdbHelper {
             val builder = GsonBuilder()
             builder.registerTypeAdapter(Int::class.java, JsonDeserializer<Int> { json, _, _ -> json.asInt })
 
-            builder.registerTypeAdapter(Date::class.java, JsonDeserializer<Date> { json, _, _ ->
-                try {
-                    var sdf: SimpleDateFormat? = tmdbDateFormat.get()
-                    if (sdf == null) {
-                        sdf = SimpleDateFormat(TmdbConstants.TMDB_DATE_PATTERN)
-                        tmdbDateFormat.set(sdf)
-                    }
-                    return@JsonDeserializer sdf.parse(json.asString)
-                } catch (e: Exception) {
-                    return@JsonDeserializer null
-                }
-            })
+            val zonedDateTimeAdapter: TypeAdapter<ZonedDateTime> = ThreeTenTypeAdapters.create(ZonedDateTime::class.java,
+                    DateTimeFormatter.ISO_ZONED_DATE_TIME)
+            builder.registerTypeAdapter(ZonedDateTime::class.java, zonedDateTimeAdapter)
+
+            val localDateAdapter = ThreeTenTypeAdapters.create(LocalDate::class.java, TmdbConstants.TMDB_DATE_FORMATTER)
+            builder.registerTypeAdapter(LocalDate::class.java, localDateAdapter)
 
             builder.registerTypeAdapter(Status::class.java, JsonDeserializer<Status> { jsonElement, _, _ ->
                 val value = jsonElement.asString

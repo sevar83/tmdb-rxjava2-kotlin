@@ -17,7 +17,7 @@
 
 package com.uwetrottmann.tmdb2.entities
 
-import java.util.*
+import org.threeten.bp.LocalDate
 
 class Person(
     val id: Int,
@@ -26,6 +26,14 @@ class Person(
     val profile_path: String? = null,
     val homepage: String? = null,
     val biography: String? = null,
-    val birthday: Date? = null,
-    val deathday: Date? = null
+    val birthday: LocalDate? = null,
+    val deathday: LocalDate? = null,
+
+    // Following are used with append_to_response
+    val movie_credits: PersonCredits? = null,
+    val tv_credits: PersonCredits? = null,
+    val combined_credits: PersonCredits? = null,
+    val external_ids: ExternalIds? = null,
+    val images: PersonImages? = null
+    //val tagged_images: TaggedImages? = null
 )

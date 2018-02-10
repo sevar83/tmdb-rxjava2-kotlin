@@ -1,5 +1,7 @@
 package com.uwetrottmann.tmdb2
 
+import org.threeten.bp.format.DateTimeFormatter
+
 /**
  * Created by sevar on 16.02.17.
  */
@@ -16,4 +18,5 @@ object TmdbConstants {
     const val HTTP_CODE_REQUEST_LIMIT_EXCEEDED = 429
 
     const val TMDB_DATE_PATTERN = "yyyy-MM-dd"
+    val TMDB_DATE_FORMATTER = DateTimeFormatter.ofPattern(TMDB_DATE_PATTERN)
 }

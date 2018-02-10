@@ -17,14 +17,14 @@
 
 package com.uwetrottmann.tmdb2.entities
 
-import java.util.*
+import org.threeten.bp.LocalDate
 
 class TvShowComplete(
         id: Int,
         original_name: String? = null,
         name: String? = null,
         origin_country: List<String>? = null,
-        first_air_date: Date? = null,
+        first_air_date: LocalDate? = null,
         backdrop_path: String? = null,
         poster_path: String? = null,
         popularity: Double? = null,
@@ -40,7 +40,7 @@ class TvShowComplete(
         val homepage: String? = null,
         val in_production: Boolean = false,
         val languages: List<String>? = null,
-        val last_air_date: Date? = null,
+        val last_air_date: LocalDate? = null,
         val number_of_episodes: Int? = null,
         val number_of_seasons: Int? = null,
         val production_companies: List<ProductionCompany>? = null,

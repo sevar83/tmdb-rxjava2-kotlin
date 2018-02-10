@@ -18,7 +18,6 @@
 package com.uwetrottmann.tmdb2.entities
 
 open class Image {
-
     val file_path: String? = null
     val width: Int? = null
     val height: Int? = null
@@ -26,5 +25,4 @@ open class Image {
     val aspect_ratio: Float? = null
     val vote_average: Float? = null
     val vote_count: Int? = null
-
 }

@@ -1,6 +1,6 @@
 package com.uwetrottmann.tmdb2.entities
 
-import java.util.*
+import org.threeten.bp.LocalDate
 
 /**
  * Created by Svetlozar Kostadinov on 27.10.17.
@@ -18,7 +18,7 @@ open class BaseMovie(
         val overview: String? = null,
         val popularity: Double? = null,
         val poster_path: String? = null,
-        val release_date: Date? = null,
+        val release_date: LocalDate? = null,
         val title: String? = null,
         val vote_average: Double? = null,
         val vote_count: Int? = null,

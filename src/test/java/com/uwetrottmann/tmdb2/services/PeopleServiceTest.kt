@@ -14,7 +14,7 @@ class PeopleServiceTest : BaseTestCase() {
     @Test
     @Throws(IOException::class, ParseException::class)
     fun test_summary() {
-        val call = manager.personService().summary(TestData.PERSON_ID)
+        val call = manager.personService().details(TestData.PERSON_ID)
         val person = call.blockingGet()
         assertThat(person).isNotNull()
         assertThat(person.id).isEqualTo(TestData.PERSON_ID)

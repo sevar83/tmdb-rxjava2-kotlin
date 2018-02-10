@@ -1,6 +1,6 @@
 package com.uwetrottmann.tmdb2.entities
 
-import java.util.*
+import org.threeten.bp.LocalDate
 
 open class TvShow(
         val id: Int,
@@ -9,7 +9,7 @@ open class TvShow(
         val original_name: String? = null,
         val original_language: String? = null,
         val origin_country: List<String>? = null,
-        val first_air_date: Date? = null,
+        val first_air_date: LocalDate? = null,
         val backdrop_path: String? = null,
         val poster_path: String? = null,
         val popularity: Double? = null,

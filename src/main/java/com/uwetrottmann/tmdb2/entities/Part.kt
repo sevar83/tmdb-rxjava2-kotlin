@@ -15,14 +15,14 @@
  */
 package com.uwetrottmann.tmdb2.entities
 
-import java.util.*
+import org.threeten.bp.LocalDate
 
 class Part {
 
     val backdrop_path: String? = null
     val id: Int = 0
     val poster_path: String? = null
-    val release_date: Date? = null
+    val release_date: LocalDate? = null
     val title: String? = null
 
 }

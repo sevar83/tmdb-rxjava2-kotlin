@@ -1,7 +1,7 @@
 package com.uwetrottmann.tmdb2.entities
 
 import com.uwetrottmann.tmdb2.enumerations.Status
-import java.util.*
+import org.threeten.bp.LocalDate
 
 class Movie(
 
@@ -16,7 +16,7 @@ class Movie(
         overview: String? = null,
         popularity: Double? = null,
         poster_path: String? = null,
-        release_date: Date? = null,
+        release_date: LocalDate? = null,
         title: String? = null,
         vote_average: Double? = null,
         vote_count: Int? = null,

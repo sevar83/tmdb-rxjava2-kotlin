@@ -27,12 +27,16 @@ interface PeopleService {
 
     /**
      * Get the general person information for a specific id.
-
+     *
      * @param tmdbId TMDb id.
+     * @param language *Optional.* ISO 639-1 code.
+     * @param appendToResponse *Optional.* extra requests to append to the result.
      */
     @GET("person/{id}")
-    fun summary(
-            @Path("id") tmdbId: Int
+    fun details(
+            @Path("id") tmdbId: Int,
+            @Query("language") language: String? = null,
+            @Query("append_to_response") appendToResponse: AppendToResponse? = null
     ): Single<Person>
 
     /**
