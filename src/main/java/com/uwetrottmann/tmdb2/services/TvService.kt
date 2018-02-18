@@ -13,7 +13,9 @@ interface TvService {
 
      * @param tmdbId A themoviedb id.
      * *
-     * @param language *Optional.* ISO 639-1 code.
+     * @param language *Optional.* ISO 639-1 code (TODO: TMDB ignores it, report the issue)
+     *
+     * @param includeImageLanguage *Optional.* ISO 639-1 code.
      * *
      * @param appendToResponse *Optional.* extra requests to append to the result.
      */
@@ -21,6 +23,7 @@ interface TvService {
     fun details(
             @Path("id") tmdbId: Int,
             @Query("language") language: String? = null,
+            @Query("include_image_language") includeImageLanguage: String? = null,
             @Query("append_to_response") appendToResponse: AppendToResponse? = null
     ): Single<TvShowComplete>
 

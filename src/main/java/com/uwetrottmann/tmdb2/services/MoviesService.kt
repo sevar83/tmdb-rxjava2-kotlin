@@ -13,7 +13,9 @@ interface MoviesService {
 
      * @param tmdbId TMDb id.
      * *
-     * @param language *Optional.* ISO 639-1 code.
+     * @param language *Optional.* ISO 639-1 code. (TODO: TMDB ignores it, report the issue)
+     *
+     * @param includeImageLanguage *Optional.* ISO 639-1 code.
      * *
      * @param appendToResponse *Optional.* extra requests to append to the result.
      */
@@ -21,6 +23,8 @@ interface MoviesService {
     fun details(
             @Path("id") tmdbId: Int,
             @Query("language") language: String? = null,
+            // Used if append_to_response=images
+            @Query("include_image_language") includeImageLanguage: String? = null,
             @Query("append_to_response") appendToResponse: AppendToResponse? = null
     ): Single<Movie>
 
@@ -53,11 +57,14 @@ interface MoviesService {
      * @param tmdbId TMDb id.
      * *
      * @param language *Optional.* ISO 639-1 code.
+     *
+     * @param includeImageLanguage *Optional.* ISO 639-1 code.
      */
     @GET("movie/{id}/images")
     fun images(
             @Path("id") tmdbId: Int,
-            @Query("language") language: String? = null
+            @Query("language") language: String? = null,
+            @Query("include_image_language") includeImageLanguage: String? = null
     ): Single<Images>
 
     /**
