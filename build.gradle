@@ -5,12 +5,12 @@ apply plugin: 'maven'
 group = 'com.github.sevar83'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 28
         consumerProguardFiles 'consumer-proguard-rules.pro'
     }
 
@@ -28,16 +28,16 @@ dependencies {
     sourceCompatibility = 1.7
     targetCompatibility = 1.7
 
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation  fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    compile "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    compile "io.reactivex.rxjava2:rxjava:$rxJava2Version"
-    compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
-    compile "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"
+    implementation  "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation  "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation  "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
+    implementation  "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation  "io.reactivex.rxjava2:rxjava:$rxJava2Version"
+    implementation  "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    implementation  "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"
 
-    testCompile "junit:junit:$jUnitVersion"
-    testCompile "org.assertj:assertj-core:$assertjVersion"
+    testImplementation  "junit:junit:$jUnitVersion"
+    testImplementation  "org.assertj:assertj-core:$assertjVersion"
 }
